@@ -2,7 +2,6 @@ package ui.test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ui.pageobjects.HomePage;
 import ui.pageobjects.PinPage;
 import ui.steps.LoginStep;
 
@@ -12,13 +11,14 @@ public class PinPageTest extends BaseTest {
     public void testAddNewPin() {
         // GIVEN
         LoginStep.login();
+        String pinTitle = "Title";
 
         // WHEN
         PinPage pinPage = new PinPage()
                 .clickButtonAddPin()
-                        .clickButtonConfirmAddPin()
-                                .uploadInputUploadPin()
-                .fillOutTextAreaAddTitle("title")
+                .clickButtonConfirmAddPin()
+                .uploadInputUploadPin()
+                .fillOutTextAreaAddTitle(pinTitle)
                 .clickButtonSavePin();
 
         // THEN
