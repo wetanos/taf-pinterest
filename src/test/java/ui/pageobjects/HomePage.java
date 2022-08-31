@@ -7,8 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage {
-    String userEmail = "testwetanos@gmail.com";
-    String userPassword = "rbhbkk25";
     String NAME = "Log in";
 
     @FindBy(xpath = "//div[@data-test-id='simple-login-button']/button")
@@ -73,15 +71,6 @@ public class HomePage extends BasePage {
 
     public HomePage openPage() {
         driver.get(BASE_URL);
-        return this;
-    }
-
-    public HomePage login() {
-        openPage()
-                .clickButtonLogin()
-                .typeEmail(userEmail)
-                .typePassword(userPassword)
-                .clickButtonSubmitLogin();
         return this;
     }
 

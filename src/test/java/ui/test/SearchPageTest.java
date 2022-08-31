@@ -2,8 +2,8 @@ package ui.test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ui.pageobjects.HomePage;
 import ui.pageobjects.SearchPage;
+import ui.steps.LoginStep;
 
 public class SearchPageTest extends BaseTest{
 
@@ -11,7 +11,7 @@ public class SearchPageTest extends BaseTest{
     public void testAddExistingPinToAccount() {
         // GIVEN
         String testInput = "memes";
-        new HomePage().login();
+        LoginStep.login();
 
         // WHEN
         SearchPage searchPage = new SearchPage()

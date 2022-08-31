@@ -4,13 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ui.pageobjects.HomePage;
 import ui.pageobjects.PinPage;
+import ui.steps.LoginStep;
 
 public class PinPageTest extends BaseTest {
 
     @Test
     public void testAddNewPin() {
         // GIVEN
-        new HomePage().login();
+        LoginStep.login();
 
         // WHEN
         PinPage pinPage = new PinPage()
@@ -22,10 +23,5 @@ public class PinPageTest extends BaseTest {
 
         // THEN
         Assert.assertTrue(pinPage.isTextSavedPin());
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }
