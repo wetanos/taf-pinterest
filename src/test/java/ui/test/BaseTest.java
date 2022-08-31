@@ -7,6 +7,7 @@ import ui.utils.TestListener;
 
 @Listeners(TestListener.class)
 public class BaseTest {
+
     @AfterTest
     public void finishTest() {
         SingletonWebDriver.closeDriver();
