@@ -1,6 +1,7 @@
 .gradle
 .idea
 .allure
+allure-results
 target
 build
 gradlew
