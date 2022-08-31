@@ -30,7 +30,10 @@ public class HomePage extends BasePage {
     private WebElement menuUserAccount;
 
     @FindBy(xpath = "//span[@id='email-error']")
-    private WebElement textEmailError;
+    private WebElement textEmailFieldError;
+
+    @FindBy(xpath = "//span[@id='password-error']")
+    private WebElement textPasswordFieldError;
 
     public HomePage clickButtonLogin() {
         buttonLogin.click();
@@ -82,7 +85,10 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public String getTextEmailError() {
-        return textEmailError.getText();
+    public String getTextEmailFieldError() {
+        return textEmailFieldError.getText();
+    }
+    public String getTextPasswordFieldError() {
+        return textPasswordFieldError.getText();
     }
 }

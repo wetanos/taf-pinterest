@@ -18,7 +18,6 @@ public class PinPageTest extends BaseTest {
                         .clickButtonConfirmAddPin()
                                 .uploadInputUploadPin()
                 .fillOutTextAreaAddTitle("title")
-                .fillOutInputAddDescription("description")
                 .clickButtonSavePin();
 
         // THEN

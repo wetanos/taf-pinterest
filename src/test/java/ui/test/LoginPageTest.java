@@ -10,7 +10,7 @@ public class LoginPageTest extends BaseTest {
     public void testLoginWithValidCredentials() {
         // GIVEN
         String userEmail = "testwetanos@gmail.com";
-        String userPassword = "Password1";
+        String userPassword = "rbhbkk25";
         HomePage homePage = new HomePage()
                 .openPage()
                 .clickButtonLogin()
@@ -33,6 +33,23 @@ public class LoginPageTest extends BaseTest {
         // WHEN
                 .clickButtonSubmitLogin();
         // THEN
-        Assert.assertEquals(homePage.getTextEmailError(), expectedError);
+        Assert.assertEquals(homePage.getTextEmailFieldError(), expectedError);
+    }
+
+    @Test
+    public void testLoginWithInvalidCredentials() {
+        // GIVEN
+        String userEmail = "mailinator@mailinator.com";
+        String userPassword = "password";
+        String expectedError = "The password you entered is incorrect.";
+        HomePage homePage = new HomePage()
+                .openPage()
+                .clickButtonLogin()
+                // WHEN
+                .typeEmail(userEmail)
+                .typePassword(userPassword)
+                .clickButtonSubmitLogin();
+                // THEN
+        Assert.assertEquals(homePage.getTextPasswordFieldError(), expectedError);
     }
 }
