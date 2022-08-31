@@ -1,7 +1,7 @@
-package ui;
+package ui.test;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import ui.pageobjects.HomePage;
 
 public class LoginPageTest extends BaseTest {
@@ -14,18 +14,25 @@ public class LoginPageTest extends BaseTest {
         HomePage homePage = new HomePage()
                 .openPage()
                 .clickButtonLogin()
-
         // WHEN
                 .typeEmail(userEmail)
                 .typePassword(userPassword)
                 .clickButtonSubmitLogin()
-                .clickButtonAccountOptions();
         // THEN
+                .clickButtonAccountOptions();
         Assert.assertTrue(homePage.isTitleUserAccount());
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    }
+
+    @Test
+    public void testLoginWithEmptyEmailField() {
+        // GIVEN
+        String expectedError = "You missed a bit! Don't forget to add your email address.";
+        HomePage homePage = new HomePage()
+                .openPage()
+                .clickButtonLogin()
+        // WHEN
+                .clickButtonSubmitLogin();
+        // THEN
+        Assert.assertEquals(homePage.getTextEmailError(), expectedError);
     }
 }

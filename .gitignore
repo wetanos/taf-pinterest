@@ -1,5 +1,7 @@
 .gradle
 .idea
+.allure
+target
 build
 gradlew
 gradlew.bat
